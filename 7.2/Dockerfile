@@ -61,12 +61,10 @@ RUN docker-php-ext-configure \
 RUN pecl install "xdebug-${XDEBUG_VERSION}"
 
 # Install persistent dependencies
-RUN apk add --no-cache --virtual .persistent-deps \
-    libjpeg-turbo=1.5.2-r0 \
-    libpng=1.6.34-r1
-
 # hadolint ignore=SC2046,DL3018
 RUN apk add --no-cache --virtual .persistent-deps \
+    libjpeg-turbo=1.5.2-r0 \
+    libpng=1.6.34-r1 \
     $( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
         | tr ',' '\n' \

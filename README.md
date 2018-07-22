@@ -18,7 +18,50 @@ docker run \
     finalgene/php-cli
 ```
 
+Run the `php-cli` image with `XDEBUG` enabled:
+
+```bash
+docker run \
+    --rm \
+    --tty \
+    --interactive \
+    --env XDEBUG_ENABLE=1
+    --volume "$(pwd)":/app \
+    finalgene/php-cli
+```
+
 For further information take a look at the [official PHP documentation](http://php.net/manual/en/).
+
+## Supported PHP Extensions
+
+| PHP Version /<br>Extension | 7.2<br>. |
+| -------------------------- |:--------:|
+| bcmath                     |    x     |
+| calendar                   |    x     |
+| exif                       |    x     |
+| gd                         |    x     |
+| gettext                    |    x     |
+| imap                       |    x     |
+| intl                       |    x     |
+| ldap                       |    x     |
+| mysqli                     |    x     |
+| opcache                    |    x     |
+| pcntl                      |    x     |
+| pdo_mysql                  |    x     |
+| pdo_pgsql                  |    x     |
+| redis                      |    x     |
+| shmop                      |    x     |
+| soap                       |    x     |
+| sockets                    |    x     |
+| sysvmsg                    |    x     |
+| sysvsem                    |    x     |
+| sysvshm                    |    x     |
+| wddx                       |    x     |
+| [xdebug](#footnote-xdebug) |    x     |
+| xsl                        |    x     |
+| zip                        |    x     |
+
+**<a name="footnote-xdebug">XDEBUG</a>** is installed but not activated by default. When using `XDEBUG` set the environment `XDEBUG_ENABLE=1` or add `-d zend_extension=xdebug.so` as option to you command.
 
 ## Quick reference
 * **Where to get help:**
