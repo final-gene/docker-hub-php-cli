@@ -5,6 +5,7 @@ This is a image to run the [PHP CLI](http://php.net/manual/en/features.commandli
 
 ## Supported tags and respective Dockerfile links
 * `7.2`, `7.2-xdebug`, `latest` [(7.2/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.2/Dockerfile)
+* `7.1`, `7.1-xdebug` [(7.1/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.1/Dockerfile)
 
 ## How to use this image
 Run the `php-cli` image:
@@ -34,32 +35,33 @@ For further information take a look at the [official PHP documentation](http://p
 
 ## Supported PHP Extensions
 
-| PHP Version /<br>Extension | 7.2<br>. |
-| -------------------------- |:--------:|
-| bcmath                     |    x     |
-| calendar                   |    x     |
-| exif                       |    x     |
-| gd                         |    x     |
-| gettext                    |    x     |
-| imap                       |    x     |
-| intl                       |    x     |
-| ldap                       |    x     |
-| mysqli                     |    x     |
-| opcache                    |    x     |
-| pcntl                      |    x     |
-| pdo_mysql                  |    x     |
-| pdo_pgsql                  |    x     |
-| redis                      |    x     |
-| shmop                      |    x     |
-| soap                       |    x     |
-| sockets                    |    x     |
-| sysvmsg                    |    x     |
-| sysvsem                    |    x     |
-| sysvshm                    |    x     |
-| wddx                       |    x     |
-| [xdebug](#footnote-xdebug) |    x     |
-| xsl                        |    x     |
-| zip                        |    x     |
+| PHP Version /<br>Extension | 7.1<br>. | 7.2<br>. |
+| -------------------------- |:--------:|:--------:|
+| bcmath                     |    x     |    x     |
+| calendar                   |    x     |    x     |
+| exif                       |    x     |    x     |
+| gd                         |    x     |    x     |
+| gettext                    |    x     |    x     |
+| imap                       |    x     |    x     |
+| intl                       |    x     |    x     |
+| ldap                       |    x     |    x     |
+| mcrypt                     |    x     |          |
+| mysqli                     |    x     |    x     |
+| opcache                    |    x     |    x     |
+| pcntl                      |    x     |    x     |
+| pdo_mysql                  |    x     |    x     |
+| pdo_pgsql                  |    x     |    x     |
+| redis                      |    x     |    x     |
+| shmop                      |    x     |    x     |
+| soap                       |    x     |    x     |
+| sockets                    |    x     |    x     |
+| sysvmsg                    |    x     |    x     |
+| sysvsem                    |    x     |    x     |
+| sysvshm                    |    x     |    x     |
+| wddx                       |    x     |    x     |
+| [xdebug](#footnote-xdebug) |    x     |    x     |
+| xsl                        |    x     |    x     |
+| zip                        |    x     |    x     |
 
 **<a name="footnote-xdebug">XDEBUG</a>** is installed but not activated by default. When using `XDEBUG` set the environment `XDEBUG_ENABLE=1` or add `-d zend_extension=xdebug.so` as option to you command.
 
