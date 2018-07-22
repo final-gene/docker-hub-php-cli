@@ -1,6 +1,6 @@
 NAME = php-cli
 
-VERSIONS = 7.0 7.1 7.2
+VERSIONS = 5.6 7.0 7.1 7.2
 
 .PHONY: build
 build: ${VERSIONS}
