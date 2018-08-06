@@ -34,6 +34,15 @@ version: 2
             docker images
 
 jobs:
+  validate-5.5:
+    environment:
+      VERSION: "5.5"
+    <<: *validate_template
+  build-5.5:
+    environment:
+      VERSION: "5.5"
+    <<: *build_template
+
   validate-5.6:
     environment:
       VERSION: "5.6"
@@ -74,6 +83,11 @@ workflows:
   version: 2
   validate_and_build:
     jobs:
+      - validate-5.5
+      - build-5.5:
+          requires:
+            - validate-5.5
+
       - validate-5.6
       - build-5.6:
           requires:
