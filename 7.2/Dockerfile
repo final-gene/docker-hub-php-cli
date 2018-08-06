@@ -5,16 +5,11 @@ LABEL maintainer="frank.giesecke@final-gene.de"
 ENV PHPREDIS_VERSION="4.0.1"
 ENV XDEBUG_VERSION="2.6.0"
 
-# Install build shell
-RUN apk add --no-cache --virtual=.build-shell \
-        bash=4.4.19-r1
-
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
+# Install build dependencies
 # hadolint ignore=SC2086
-RUN echo "Install build dependencies" \
-    && apk add --no-cache --virtual=.build-deps \
+RUN apk add --no-cache --virtual=.build-deps \
         ${PHPIZE_DEPS} \
+        bash=4.4.19-r1 \
         gettext-dev=0.19.8.1-r1 \
         icu-dev=59.1-r1 \
         krb5-dev=1.15.2-r1 \
@@ -25,15 +20,17 @@ RUN echo "Install build dependencies" \
         openldap-dev=2.4.45-r3 \
         postgresql-dev=10.4-r0 \
         libzip=1.3.0-r1 \
-        imap-dev=2007f-r7 \
-    \
-    && echo "Provide sources to build PHP redis client" \
-    && mkdir -p /usr/src/php/ext/redis \
+        imap-dev=2007f-r7
+
+SHELL ["/bin/bash", "-o", "pipefail", "-e", "-c"]
+
+# Provide sources to build PHP redis client
+RUN mkdir -p /usr/src/php/ext/redis \
     && curl -sSL "https://github.com/phpredis/phpredis/archive/${PHPREDIS_VERSION}.tar.gz" | tar xvz -C /usr/src/php/ext/redis --strip 1 \
-    && echo 'redis' >> /usr/src/php-available-exts \
-    \
-    && echo "Configure and install PHP extensions" \
-    && docker-php-ext-configure \
+    && echo 'redis' >> /usr/src/php-available-exts
+
+# Configure and install PHP extensions
+RUN docker-php-ext-configure \
         imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install \
         bcmath \
@@ -58,28 +55,25 @@ RUN echo "Install build dependencies" \
         sysvshm \
         wddx \
         xsl \
-        zip \
-    \
-    && echo "Install XDEBUG" \
-    && pecl install "xdebug-${XDEBUG_VERSION}" \
-    \
-    && echo "Remove build dependencies" \
-    && apk del .build-deps \
+        zip
+
+# Install XDEBUG
+RUN pecl install "xdebug-${XDEBUG_VERSION}"
 
 # Install persistent dependencies
 # hadolint ignore=SC2046,DL3018
 RUN apk add --no-cache --virtual .persistent-deps \
-        libjpeg-turbo=1.5.2-r0 \
-        libpng=1.6.34-r1 \
-        $( \
-            scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
-            | tr ',' '\n' \
-            | sort -u \
-            | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
-        )
+    libjpeg-turbo=1.5.2-r0 \
+    libpng=1.6.34-r1 \
+    $( \
+        scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
+        | tr ',' '\n' \
+        | sort -u \
+        | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
+    )
 
-# Remove build shell
-RUN apk del .build-shell
+# Remove build dependencies
+RUN apk del .build-deps
 
 # Add entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
