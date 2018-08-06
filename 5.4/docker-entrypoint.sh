@@ -11,7 +11,7 @@ if [ "${1}" != "" -a "${1:0:1}" != "-" ]; then
 fi
 
 if [ "1" == "${XDEBUG_ENABLE}" ]; then
-    PHP_OPTIONS="${PHP_OPTIONS} -d zend_extension=xdebug.so"
+    PHP_OPTIONS="${PHP_OPTIONS} -d zend_extension=$(php-config --extension-dir)/xdebug.so"
 fi
 
 # Run given command if the first arg matches the entry point command
