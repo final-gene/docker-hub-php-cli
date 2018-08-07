@@ -2,8 +2,8 @@ FROM php:7.1-cli-alpine3.7
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ENV PHPREDIS_VERSION="4.0.1"
-ENV XDEBUG_VERSION="2.6.0"
+ENV PHPREDIS_VERSION "4.0.1"
+ENV XDEBUG_VERSION "2.6.0"
 
 # Install build dependencies
 # hadolint ignore=SC2086
