@@ -40,36 +40,36 @@ For further information take a look at the [official PHP documentation](http://p
 
 ## Supported PHP Extensions
 
-| PHP Version /<br>Extension | 5.3<br>. | 5.4<br>. | 5.5<br>. | 5.6<br>. | 7.0<br>. | 7.1<br>. | 7.2<br>. |
-| -------------------------- |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
-| bcmath                     |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| calendar                   |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| exif                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| gd                         |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| gettext                    |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| imap                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| intl                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| ldap                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| mcrypt                     |          |    x     |    x     |    x     |    x     |    x     |          |
-| mysqli                     |    x     |    x     |    x     |    x     |    x     |    x     |    x     |
-| opcache                    |          |          |    x     |    x     |    x     |    x     |    x     |
-| pcntl                      |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| pdo_mysql                  |    x     |    x     |    x     |    x     |    x     |    x     |    x     |
-| pdo_sqlite                 |    x     |          |          |          |          |          |          |
-| pdo_pgsql                  |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| redis                      |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| shmop                      |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| soap                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| sockets                    |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| sysvmsg                    |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| sysvsem                    |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| sysvshm                    |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| wddx                       |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| [xdebug](#footnote-xdebug) |    x     |    x     |    x     |    x     |    x     |    x     |    x     |
-| xsl                        |          |    x     |    x     |    x     |    x     |    x     |    x     |
-| zip                        |          |    x     |    x     |    x     |    x     |    x     |    x     |
+| Extension / PHP Version |   5.3   |   5.4   |   5.5   |   5.6   |   7.0   |   7.1   |   7.2   |
+| ----------------------- |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| bcmath                  |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| calendar                |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| exif                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| gd                      |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| gettext                 |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| imap                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| intl                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| ldap                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| mcrypt                  |         |    x    |    x    |    x    |    x    |    x    |         |
+| mysqli                  |    x    |    x    |    x    |    x    |    x    |    x    |    x    |
+| opcache                 |         |         |    x    |    x    |    x    |    x    |    x    |
+| pcntl                   |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| pdo_mysql               |    x    |    x    |    x    |    x    |    x    |    x    |    x    |
+| pdo_sqlite              |    x    |         |         |         |         |         |         |
+| pdo_pgsql               |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| redis                   |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| shmop                   |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| soap                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| sockets                 |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| sysvmsg                 |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| sysvsem                 |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| sysvshm                 |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| wddx                    |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| xdebug [1]              |    x    |    x    |    x    |    x    |    x    |    x    |    x    |
+| xsl                     |         |    x    |    x    |    x    |    x    |    x    |    x    |
+| zip                     |         |    x    |    x    |    x    |    x    |    x    |    x    |
 
-**<a name="footnote-xdebug">XDEBUG</a>** is installed but not activated by default. When using `XDEBUG` set the environment `XDEBUG_ENABLE=1` or add `-d zend_extension=xdebug.so` as option to you command.
+**[1] XDEBUG** is installed but not activated by default. When using `XDEBUG` set the environment `XDEBUG_ENABLE=1` or add `-d zend_extension=xdebug.so` as option to you command.
 
 ## Quick reference
 * **Where to get help:**
