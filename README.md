@@ -4,7 +4,7 @@
 This is a image to run the [PHP CLI](http://php.net/manual/en/features.commandline.php).
 
 ## Supported tags and respective Dockerfile links
-* `7.2`, `7.2-xdebug`, `latest` [(7.2/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.2/Dockerfile)
+* `7.2`, `7.2-xdebug` [(7.2/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.2/Dockerfile)
 * `7.1`, `7.1-xdebug` [(7.1/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.1/Dockerfile)
 * `7.0`, `7.0-xdebug` [(7.0/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/7.0/Dockerfile)
 * `5.6`, `5.6-xdebug` [(5.6/Dockerfile)](https://github.com/finalgene/docker-hub-php-cli/blob/master/5.6/Dockerfile)
