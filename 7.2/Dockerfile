@@ -3,7 +3,7 @@ FROM php:7.2-cli-alpine3.7
 LABEL maintainer="frank.giesecke@final-gene.de"
 
 ENV PHPREDIS_VERSION "4.0.1"
-ENV XDEBUG_VERSION "2.6.0"
+ENV XDEBUG_VERSION "2.6.1"
 
 # Install build dependencies
 # hadolint ignore=SC2086
@@ -18,7 +18,7 @@ RUN apk add --no-cache --virtual=.build-deps \
         libxml2-dev=2.9.7-r0 \
         libxslt-dev=1.1.31-r0 \
         openldap-dev=2.4.45-r3 \
-        postgresql-dev=10.4-r0 \
+        postgresql-dev=10.5-r0 \
         libzip=1.3.0-r1 \
         imap-dev=2007f-r7
 
