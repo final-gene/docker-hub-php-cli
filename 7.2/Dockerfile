@@ -18,7 +18,7 @@ RUN apk add --no-cache --virtual=.build-deps \
         libxml2-dev=2.9.7-r0 \
         libxslt-dev=1.1.31-r0 \
         openldap-dev=2.4.45-r3 \
-        postgresql-dev=10.4-r0 \
+        postgresql-dev=10.5-r0 \
         libzip=1.3.0-r1 \
         imap-dev=2007f-r7
 
