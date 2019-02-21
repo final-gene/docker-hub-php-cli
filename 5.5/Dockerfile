@@ -7,20 +7,20 @@ ENV PHPREDIS_VERSION "4.0.1"
 ENV XDEBUG_VERSION "2.5.5"
 
 # Install build dependencies
-# hadolint ignore=SC2086
+# hadolint ignore=SC2086,DL3018
 RUN apk add --no-cache --virtual=.build-deps \
         ${PHPIZE_DEPS} \
-        bash=4.3.42-r5 \
-        gettext-dev=0.19.7-r3 \
-        icu-dev=57.1-r3 \
-        krb5-dev=1.14.3-r0 \
-        libpng-dev=1.6.21-r0 \
-        libxml2-dev=2.9.5-r0 \
-        libxslt-dev=1.1.29-r1 \
-        openldap-dev=2.4.44-r2 \
-        postgresql-dev=9.5.12-r0 \
-        imap-dev=2007f-r2 \
-        libmcrypt-dev=2.5.8-r7
+        bash \
+        gettext-dev \
+        icu-dev \
+        krb5-dev \
+        libpng-dev \
+        libxml2-dev \
+        libxslt-dev \
+        openldap-dev \
+        postgresql-dev \
+        imap-dev \
+        libmcrypt-dev
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-c"]
 
@@ -66,8 +66,8 @@ RUN pecl install "xdebug-${XDEBUG_VERSION}"
 # Install persistent dependencies
 # hadolint ignore=SC2046,DL3018
 RUN apk add --no-cache --virtual .persistent-deps \
-    libjpeg-turbo=1.4.2-r0 \
-    libpng=1.6.21-r0 \
+    libjpeg-turbo \
+    libpng \
     $( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
         | tr ',' '\n' \

@@ -1,9 +1,9 @@
-FROM php:7.0-cli-alpine3.7
+FROM php:7.3-cli-alpine3.9
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
 ENV PHPREDIS_VERSION "4.0.1"
-ENV XDEBUG_VERSION "2.6.1"
+ENV XDEBUG_VERSION "2.7.0RC2"
 
 # Install build dependencies
 # hadolint ignore=SC2086,DL3018
@@ -14,14 +14,12 @@ RUN apk add --no-cache --virtual=.build-deps \
         icu-dev \
         krb5-dev \
         libpng-dev \
-        libressl-dev \
         libxml2-dev \
         libxslt-dev \
         openldap-dev \
         postgresql-dev \
-        libzip \
-        imap-dev \
-        libmcrypt-dev
+        libzip-dev \
+        imap-dev
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-c"]
 
@@ -42,7 +40,6 @@ RUN docker-php-ext-configure \
         imap \
         intl \
         ldap \
-        mcrypt \
         mysqli \
         opcache \
         pcntl \
