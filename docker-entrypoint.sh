@@ -2,6 +2,7 @@
 
 ENTRYPOINT_COMMAND=php
 NO_CMD=1
+PHP_OPTIONS=
 
 # Check for binary if first arg doesn't starts with `-`
 if [[ "${1}" != "" && "${1:0:1}" != "-" ]]; then

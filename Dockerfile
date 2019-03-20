@@ -1,4 +1,4 @@
-FROM php:7.1-cli-alpine3.9
+FROM php:7.2-cli-alpine3.9
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
@@ -19,8 +19,7 @@ RUN apk add --no-cache \
         openldap-dev \
         postgresql-dev \
         libzip-dev \
-        imap-dev \
-        libmcrypt-dev
+        imap-dev
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-c"]
 
@@ -41,7 +40,6 @@ RUN docker-php-ext-configure \
         imap \
         intl \
         ldap \
-        mcrypt \
         mysqli \
         opcache \
         pcntl \
