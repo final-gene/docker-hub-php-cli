@@ -10,8 +10,8 @@ if [[ "${1}" != "" && "${1:0:1}" != "-" ]]; then
 fi
 
 # Enable or disable XDEBUG
-if [[ "1" = "${XDEBUG_ENABLE}" ]]; then
-    echo "zend_extension=$(php-config --extension-dir)/xdebug.so" > ${PHP_INI_DIR}/conf.d/docker-php-ext-xdebug.ini
+if [[ "1" == "${XDEBUG_ENABLE}" ]]; then
+    echo "zend_extension=xdebug.so" > ${PHP_INI_DIR}/conf.d/docker-php-ext-xdebug.ini
 else
     rm -f ${PHP_INI_DIR}/conf.d/docker-php-ext-xdebug.ini
 fi
