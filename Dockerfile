@@ -1,5 +1,4 @@
-# This image is based on alpine 3.4
-FROM php:5.5-alpine
+FROM php:5.6-cli-alpine3.7
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
@@ -15,10 +14,12 @@ RUN apk add --no-cache --virtual=.build-deps \
         icu-dev \
         krb5-dev \
         libpng-dev \
+        libressl-dev \
         libxml2-dev \
         libxslt-dev \
         openldap-dev \
         postgresql-dev \
+        libzip \
         imap-dev \
         libmcrypt-dev
 
@@ -32,8 +33,6 @@ RUN mkdir -p /usr/src/php/ext/redis \
 # Configure and install PHP extensions
 RUN docker-php-ext-configure \
         imap --with-kerberos --with-imap-ssl \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-configure ldap \
     && docker-php-ext-install \
         bcmath \
         calendar \
