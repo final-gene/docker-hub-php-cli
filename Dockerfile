@@ -1,4 +1,4 @@
-FROM php:7.0-cli-alpine3.7
+FROM php:7.1-cli-alpine3.9
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
@@ -7,19 +7,18 @@ ENV XDEBUG_VERSION="2.6.1"
 
 # Install build dependencies
 # hadolint ignore=SC2086,DL3018
-RUN apk add --no-cache --virtual=.build-deps \
+RUN apk add --no-cache \
         ${PHPIZE_DEPS} \
         bash \
         gettext-dev \
         icu-dev \
         krb5-dev \
         libpng-dev \
-        libressl-dev \
         libxml2-dev \
         libxslt-dev \
         openldap-dev \
         postgresql-dev \
-        libzip \
+        libzip-dev \
         imap-dev \
         libmcrypt-dev
 
@@ -61,21 +60,6 @@ RUN docker-php-ext-configure \
 
 # Install XDEBUG
 RUN pecl install "xdebug-${XDEBUG_VERSION}"
-
-# Install persistent dependencies
-# hadolint ignore=SC2046,DL3018
-RUN apk add --no-cache --virtual .persistent-deps \
-    libjpeg-turbo \
-    libpng \
-    $( \
-        scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
-        | tr ',' '\n' \
-        | sort -u \
-        | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
-    )
-
-# Remove build dependencies
-RUN apk del .build-deps
 
 # Add entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
