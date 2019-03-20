@@ -10,8 +10,6 @@ lint:
 
 .PHONY: build
 build: lint
-	@echo "Build ${@}"
-
 	@docker build \
 		--no-cache \
 		--tag finalgene/${NAME}:dev \
