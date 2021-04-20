@@ -1,9 +1,9 @@
-FROM php:7.3-cli-alpine3.10
+FROM php:7.4-cli-alpine3.13
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ARG PHPREDIS_VERSION="5.0.2"
-ENV XDEBUG_VERSION="2.7.2"
+ARG PHPREDIS_VERSION="5.3.4"
+ENV XDEBUG_VERSION="2.9.8"
 
 # Install build dependencies
 # hadolint ignore=SC2086,DL3018
@@ -52,7 +52,6 @@ RUN docker-php-ext-configure \
         sysvmsg \
         sysvsem \
         sysvshm \
-        wddx \
         xsl \
         zip
 
