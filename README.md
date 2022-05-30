@@ -1,5 +1,4 @@
 # PHP CLI
-[![CircleCI](https://circleci.com/gh/final-gene/docker-hub-php-cli/tree/master.svg?style=svg)](https://circleci.com/gh/final-gene/docker-hub-php-cli/tree/master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e067ba9a720d4b3995c21adc9182f599)](https://www.codacy.com/app/final-gene/docker-hub-php-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=final-gene/docker-hub-php-cli&amp;utm_campaign=Badge_Grade)
 
 This is a image to run the [PHP CLI](http://php.net/manual/en/features.commandline.php).
 
