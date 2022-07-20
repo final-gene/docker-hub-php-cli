@@ -2,7 +2,7 @@ FROM php:8.0.13-cli-alpine3.13
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ARG PHPREDIS_VERSION="5.3.4"
+ARG PHPREDIS_VERSION="5.3.7"
 ENV XDEBUG_VERSION="3.1.5"
 
 # Install build dependencies
